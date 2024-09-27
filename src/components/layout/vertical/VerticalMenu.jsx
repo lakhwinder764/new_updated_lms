@@ -16,6 +16,7 @@ import StyledVerticalNavExpandIcon from '@menu/styles/vertical/StyledVerticalNav
 // Style Imports
 import menuItemStyles from '@core/styles/vertical/menuItemStyles'
 import menuSectionStyles from '@core/styles/vertical/menuSectionStyles'
+import { TestRouting } from '../../../app/(dashboard)/test/routing'
 
 const RenderExpandIcon = ({ open, transitionDuration }) => (
   <StyledVerticalNavExpandIcon open={open} transitionDuration={transitionDuration}>
@@ -61,6 +62,7 @@ const VerticalMenu = ({ scrollMenu }) => {
         <MenuItem href='/about' icon={<i className='ri-information-line' />}>
           About
         </MenuItem>
+        <TestRouting />
       </Menu>
       {/* <Menu
           popoutMenuOffset={{ mainAxis: 17 }}
