@@ -24,6 +24,8 @@ const Layout = async ({ children }) => {
   const mode = getMode()
   const systemMode = getSystemMode()
 
+  // new file
+
   return (
     <Providers direction={direction}>
       <LayoutWrapper
