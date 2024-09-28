@@ -439,12 +439,12 @@ const TestListTable = ({ tableData, addUserData, deleteUserData }) => {
                       <i className='ri-delete-bin-7-line text-textSecondary' />
                     </IconButton>
                     <IconButton size='small'>
-                      <Link href={`/apps/test/questions/?guid=${row?.original?.guid}`} className='flex'>
+                      <Link href={`/test/questions/?guid=${row?.original?.guid}`} className='flex'>
                         <i className='ri-eye-line text-textSecondary' />
                       </Link>
                     </IconButton>
                     <IconButton size='small'>
-                      <Link href={`/apps/test/edit?guid=${row?.original?.guid}`} className='flex'>
+                      <Link href={`/test/edit?guid=${row?.original?.guid}`} className='flex'>
                         <i className='ri-edit-box-line text-textSecondary' />
                       </Link>
                     </IconButton>
@@ -526,7 +526,7 @@ const TestListTable = ({ tableData, addUserData, deleteUserData }) => {
 
   return (
     <>
-      <FilterHeader title='All Tests' subtitle='Orders placed across your store' link='/en/apps/test/list'>
+      <FilterHeader title='All Tests' subtitle='Orders placed across your store' link='/test/list'>
         <Grid item xs={6} md={2} display='flex' alignItems='center' pb={3}>
           <Button
             fullWidth

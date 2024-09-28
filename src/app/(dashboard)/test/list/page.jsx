@@ -28,14 +28,7 @@ export default function Page() {
   // Vars
   // const data = await getUserData()
 
-  return (
-    <UserList
-      userData={data}
-      addUsersData={addTestData}
-      updateUsersData={updateTestData}
-      deleteUserData={deleteTestData}
-    />
-  )
+  return <UserList />
 
   // return null
 }

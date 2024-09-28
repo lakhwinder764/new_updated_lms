@@ -23,7 +23,7 @@ import ReactQuill from 'react-quill'
 
 import 'react-quill/dist/quill.snow.css'
 
-// import TextEditor from '@/Components/Common/TextEditor'
+import TextEditor from '@/components/Common/TextEditor'
 
 // Vars
 const initialData = {
@@ -99,78 +99,6 @@ const AddTestDrawer = props => {
     setFormData(initialData)
   }
 
-  // const modules = {
-  //   toolbar: [
-  //     // [{ header: '1' }, { header: '2' }, { font: [] }],
-  //     // [{ size: [] }],
-  //     ['bold', 'italic', 'underline'],
-  //     [{ list: 'ordered' }, { list: 'bullet' }, { indent: '-1' }, { indent: '+1' }],
-
-  //     // ['link', 'image', 'video'],
-  //     ['clean']
-  //   ],
-  //   clipboard: {
-  //     // toggle to add extra line breaks when pasting HTML:
-  //     matchVisual: false
-  //   }
-  // }
-
-  const modules = {
-    toolbar: {
-      container: [
-        [{ font: [] }], // Font dropdown
-        [{ color: [] }, { background: [] }], // Color dropdown
-        // [{ header: [1, 2, false] }], // Headers dropdown
-        // ['bold', 'italic', 'underline'], // Formatting buttons
-        [{ align: [] }], // Text alignment
-        [
-          {
-            handler: () => {
-              // Custom back button
-              this.quill.history.back()
-            },
-            icon: 'fa fa-arrow-left' // FontAwesome icon
-          },
-          {
-            handler: () => {
-              // Custom next button
-              this.quill.history.forward()
-            },
-            icon: 'fa fa-arrow-right' // FontAwesome icon
-          }
-        ]
-      ]
-    },
-    history: {
-      delay: 1000,
-      maxStack: 50,
-      userOnly: true
-    }
-  }
-
-  const formats = [
-    'header',
-
-    // 'font',
-    // 'size',
-    'bold',
-    'italic',
-
-    'underline',
-
-    // 'strike',
-    // 'blockquote',
-    'list',
-    'bullet',
-    'indent'
-
-    // 'link',
-    // 'image',
-    // 'video'
-  ]
-
-  console.info(description)
-
   return (
     <Drawer
       open={open}
@@ -213,19 +141,7 @@ const AddTestDrawer = props => {
                 )}
               />
               <Box pt={5} pb={7}>
-                {/* <CustomQuill
-                  theme='snow'
-                  modules={modules}
-                  formats={formats}
-                  placeholder='Description'
-                  value={description}
-                  onChange={setDescription}
-                  style={{
-                    height: 110,
-                    marginBottom: 50
-                  }}
-                /> */}
-                {/* <TextEditor setTextValue={setDescription} /> */}
+                <TextEditor setTextValue={setDescription} />
               </Box>
               <FormControl fullWidth>
                 <InputLabel id='country' error={Boolean(errors.role)}>

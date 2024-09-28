@@ -4,9 +4,12 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useTheme } from '@mui/material/styles'
 
+import { toast } from 'react-toastify'
+import { IconButton, Typography } from '@mui/material'
+
 import { USER_MODULE_ENDPOINTS } from '@/Const/ApiEndpoints'
 
-// import { alertMessages } from '@/Components/globals/AlertMessages'
+import { alertMessages } from '@/components/globals/AlertMessages'
 
 export default function useTestApi() {
   const [data, setData] = useState([])
@@ -93,7 +96,7 @@ export default function useTestApi() {
           }
         )
         .then(res => {
-          //   alertMessages(theme, 'success', res?.data?.message)
+          alertMessages(theme, 'success', res?.data?.message)
           fetchData()
         })
 
@@ -114,7 +117,7 @@ export default function useTestApi() {
 
     try {
       axios.post(`${USER_MODULE_ENDPOINTS}/add/${guId}`, formData).then(res => {
-        // alertMessages(theme, 'success', res?.data?.message)
+        alertMessages(theme, 'success', res?.data?.message)
       })
 
       //   return response.data
