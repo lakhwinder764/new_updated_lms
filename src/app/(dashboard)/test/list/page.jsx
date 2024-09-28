@@ -1,11 +1,8 @@
 // Component Imports
 
 // import UserList from '@views/apps/user/list'
-'use client'
-import { useSearchParams } from 'next/navigation'
 
-import useTestApi from '@/api/useTestApi'
-import UserList from '@views/list'
+import UserList from '@views/test/list/UserList'
 
 // Data Imports
 // import { getUserData, getNewUserData } from '@/app/server/actions'
@@ -27,10 +24,9 @@ import UserList from '@views/list'
 //   return res.json()
 // }
 
-const UserListApp = () => {
+export default function Page() {
   // Vars
   // const data = await getUserData()
-  const { addTestData, updateTestData, deleteTestData, data, testData, viewTest } = useTestApi()
 
   return (
     <UserList
@@ -40,6 +36,6 @@ const UserListApp = () => {
       deleteUserData={deleteTestData}
     />
   )
-}
 
-export default UserListApp
+  // return null
+}
