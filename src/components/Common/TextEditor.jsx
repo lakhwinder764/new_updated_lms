@@ -14,7 +14,6 @@ import { Underline } from '@tiptap/extension-underline'
 import { Placeholder } from '@tiptap/extension-placeholder'
 import { TextAlign } from '@tiptap/extension-text-align'
 
-import '@/libs/styles/tiptapEditor.css'
 import CustomIconButton from '@/@core/components/mui/IconButton'
 
 const EditorToolbar = ({ editor }) => {
