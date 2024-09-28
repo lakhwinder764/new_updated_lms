@@ -1,7 +1,5 @@
-import TestView from '@/app/TestView'
-
 const ComponentName = () => {
-  return <TestView />
+  return <h1>Test Page</h1>
 }
 
 export default ComponentName
