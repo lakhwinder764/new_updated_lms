@@ -56,7 +56,7 @@ import useQuestionApi from '@/api/useQuestionApi'
 const AddQuestion = () => {
   const searchParams = useSearchParams()
   const guid = searchParams.get('guid')
-  const { createQuestion, editQuestion, QId } = useQuestionApi()
+  const { createQuestion, editQuestion, QId, questionTypeFixed } = useQuestionApi()
   const [questionType, setQuestionType] = useState('mcmc')
   const [saveQuestion, setSaveQuestion] = useState(false)
   const [editQuestions, setEditQuestions] = useState(false)
@@ -93,7 +93,8 @@ const AddQuestion = () => {
       timeValue: 'second',
       time: '',
       difficulty: '',
-      importance: ''
+      importance: '',
+      randomize_questions: false
     }
   })
 
@@ -209,7 +210,7 @@ const AddQuestion = () => {
               width: '100vw'
             }}
           >
-            <QuestionTypeAndTemplate control={control} errors={errors} />
+            <QuestionTypeAndTemplate control={control} errors={errors} questionTypeFixed={questionTypeFixed} />
             <Grid item xs={12} py={4}>
               <Card>
                 <CardHeader title='Question' />
@@ -239,7 +240,9 @@ const AddQuestion = () => {
               </Card>
             </Grid>
             <Grid item xs={12}>
-              {selectedValue === 'mcmc' && <McqQuestion mcqFields={mcqFields} setMcqFields={setMcqFields} />}
+              {selectedValue === 'mcmc' && (
+                <McqQuestion mcqFields={mcqFields} setMcqFields={setMcqFields} control={control} />
+              )}
               {selectedValue === 'tf' && (
                 <TrueFalseQuestion choiceFields={choiceFields} setChoiceFields={setChoiceFields} />
               )}

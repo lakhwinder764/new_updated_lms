@@ -10,6 +10,7 @@ import { alertMessages } from '@/components/globals/AlertMessages'
 export default function useQuestionApi() {
   const [data, setData] = useState([])
   const [QId, setQId] = useState(null)
+  const [questionTypeFixed, setQuestionTypeFized] = useState(false)
   const theme = useTheme()
 
   console.info(process.env.NEXT_PUBLIC_DOCS_URL)
@@ -48,6 +49,7 @@ export default function useQuestionApi() {
           accept: 'application/json'
         })
         .then(res => {
+          setQuestionTypeFized(true)
           alertMessages(theme, 'success', res?.data?.message)
           setQId(res?.data?.payload?.question_guid)
         })
@@ -102,6 +104,7 @@ export default function useQuestionApi() {
   return {
     editQuestion,
     createQuestion,
-    QId
+    QId,
+    questionTypeFixed
   }
 }

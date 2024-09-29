@@ -51,7 +51,8 @@ const AddTestDrawer = props => {
     defaultValues: {
       title: '',
       description: '',
-      type: 'evaluated'
+      type: '',
+      category: ''
     }
   })
 
@@ -75,6 +76,7 @@ const AddTestDrawer = props => {
       title: data.title,
       description: description,
       type: data.type,
+      category: data?.category,
       created_on: moment().format('YYYY-MM-DD HH:mm:ss'),
 
       // optional parameters
@@ -91,7 +93,7 @@ const AddTestDrawer = props => {
     // setData([...(userData ?? []), newUser])
     handleClose()
     setFormData(initialData)
-    resetForm({ title: '', description: '', type: '' })
+    resetForm({ title: '', description: '', type: '', category: '' })
   }
 
   const handleReset = () => {
@@ -134,7 +136,7 @@ const AddTestDrawer = props => {
                   <TextField
                     {...field}
                     fullWidth
-                    label='Title'
+                    label='Title *'
                     placeholder='John Doe'
                     {...(errors.title && { error: true, helperText: 'This field is required.' })}
                   />
@@ -143,9 +145,14 @@ const AddTestDrawer = props => {
               <Box pt={5} pb={7}>
                 <TextEditor setTextValue={setDescription} />
               </Box>
-              <FormControl fullWidth>
-                <InputLabel id='country' error={Boolean(errors.role)}>
-                  Select Type
+              <FormControl
+                fullWidth
+                sx={{
+                  paddingBottom: 5
+                }}
+              >
+                <InputLabel id='country' error={Boolean(errors.type)}>
+                  Select Type *
                 </InputLabel>
                 <Controller
                   name='type'
@@ -160,6 +167,24 @@ const AddTestDrawer = props => {
                   )}
                 />
                 {errors.type && <FormHelperText error>This field is required.</FormHelperText>}
+              </FormControl>
+              <FormControl fullWidth>
+                <InputLabel id='category' error={Boolean(errors.category)}>
+                  Select Category *
+                </InputLabel>
+                <Controller
+                  name='category'
+                  control={control}
+                  rules={{ required: true }}
+                  render={({ field }) => (
+                    <Select label='Select Category' {...field} error={Boolean(errors.category)}>
+                      <MenuItem value='category1'>Category 1</MenuItem>
+                      <MenuItem value='category2'>Category 2</MenuItem>
+                      <MenuItem value='category3'>Category 3</MenuItem>
+                    </Select>
+                  )}
+                />
+                {errors.category && <FormHelperText error>This field is required.</FormHelperText>}
               </FormControl>
             </Box>
             <Box>

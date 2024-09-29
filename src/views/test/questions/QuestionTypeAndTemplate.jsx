@@ -1,7 +1,7 @@
-import { Grid, Card, CardContent, FormControl, Select, MenuItem, FormHelperText } from '@mui/material'
+import { Grid, Card, CardContent, FormControl, Select, MenuItem, FormHelperText, InputLabel } from '@mui/material'
 import { Controller } from 'react-hook-form'
 
-const QuestionTypeAndTemplate = ({ control, errors }) => {
+const QuestionTypeAndTemplate = ({ control, errors, questionTypeFixed }) => {
   return (
     <Grid item xs={12}>
       <Card>
@@ -20,6 +20,7 @@ const QuestionTypeAndTemplate = ({ control, errors }) => {
                   }
                 }}
               >
+                <InputLabel id='country'>Question Type</InputLabel>
                 <Controller
                   name='question_type'
                   control={control}
@@ -27,10 +28,11 @@ const QuestionTypeAndTemplate = ({ control, errors }) => {
                   render={({ field }) => (
                     <Select
                       {...field}
+                      label='Question Type'
                       size='small'
+                      disabled={questionTypeFixed}
                       error={Boolean(errors.question_type)}
                       fullWidth
-                      inputProps={{ placeholder: 'Question Type' }}
                     >
                       <MenuItem value='mcmc'>Multiple Choice Questions</MenuItem>
                       <MenuItem value='tf'>True False</MenuItem>

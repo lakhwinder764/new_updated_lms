@@ -71,7 +71,8 @@ export default function useTestApi() {
     const data = {
       title: userData?.title,
       type: userData?.type,
-      details: userData?.description
+      details: userData?.description,
+      category: userData?.category
     }
 
     const formData = new FormData()

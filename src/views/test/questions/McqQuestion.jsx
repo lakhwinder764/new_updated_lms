@@ -13,12 +13,15 @@ import {
   CardContent,
   CardActions,
   TextField,
-  Typography
+  Typography,
+  FormControlLabel
 } from '@mui/material'
+
+import { Controller } from 'react-hook-form'
 
 import TextEditor from '@/components/Common/TextEditor'
 
-const McqQuestion = ({ mcqFields, setMcqFields }) => {
+const McqQuestion = ({ mcqFields, setMcqFields, control, error }) => {
   // Function to handle input text change
   const handleInputChange = (index, content) => {
     const newFields = [...mcqFields]
@@ -93,6 +96,14 @@ const McqQuestion = ({ mcqFields, setMcqFields }) => {
             justifyContent: 'flex-end'
           }}
         >
+          <Controller
+            name='randomize_questions'
+            control={control}
+            render={({ field }) => (
+              <FormControlLabel control={<Checkbox {...field} checked={field.value} />} label='Randomize Questions' />
+            )}
+          />
+
           <Button variant='outlined' color='primary' type='reset' onClick={addField}>
             Add Answer Choice
           </Button>

@@ -448,6 +448,11 @@ const TestListTable = ({ tableData, addUserData, deleteUserData }) => {
                         <i className='ri-edit-box-line text-textSecondary' />
                       </Link>
                     </IconButton>
+                    {/* <IconButton size='small'>
+                      <Link href={`/test/manage?guid=${row?.original?.guid}`} className='flex'>
+                        <i class='ri-tools-line'></i>
+                      </Link>
+                    </IconButton> */}
                     {/* <OptionMenu
                       iconClassName='text-textSecondary'
                       data={row}
